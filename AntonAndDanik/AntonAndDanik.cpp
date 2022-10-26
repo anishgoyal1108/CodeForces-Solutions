@@ -87,32 +87,34 @@ lli power(lli a,lli b) {
   return ans;
 }
 
-void solve(int h, int n) {
-  int x;
-  int output = 0;
-  vi heights(n, 0);
-  for (int i = 0; i < n; i++) {
-      cin >> x;
-      heights[i]=x;
+void solve(int testcase) {
+  int cntA = 0;
+  int cntD = 0;
+  string str;
+  cin >> str;
+
+  for (int i = 0; i < str.length(); i++) {
+    if (str[i] == 'A')
+      cntA++;
+    if (str[i] == 'D')
+      cntD++;
   }
-  for (int i : heights) {
-      if (i > h)
-        output += 2;
-      else
-        output++;
-  }
-  cout << output;
-  nl;
+  if (cntA > cntD)
+    cout << "Anton";
+  else if (cntA < cntD)
+    cout << "Danik";
+  else
+    cout << "Friendship";
 }
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int n, h;
-  cin>>n>>h;
-  for (int testcase=0; testcase<1; testcase++) {
-    solve(h, n);
+  lli testcases;
+  cin>>testcases;
+  for(int testcase=0; testcase<1; testcase++) {
+    solve(testcase);
   }
 }
 
